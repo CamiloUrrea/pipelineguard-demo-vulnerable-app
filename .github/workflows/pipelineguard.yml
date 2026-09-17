@@ -29,6 +29,6 @@ jobs:
       # gh and jq are preinstalled on ubuntu-latest runners.
 
       - name: Run PipelineGuard
-        uses: CamiloUrrea/PipelineGuard@v0.1.0
+        uses: CamiloUrrea/PipelineGuard/action@v0.1.0
         with:
           config-path: .pipelineguard.yml
