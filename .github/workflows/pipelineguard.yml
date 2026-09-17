@@ -21,7 +21,7 @@ jobs:
           go-version: 'stable'
 
       - name: Install gitleaks
-        run: go install github.com/gitleaks/gitleaks/v8@latest
+        run: go install github.com/zricethezav/gitleaks/v8@latest
 
       - name: Install trivy
         run: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
