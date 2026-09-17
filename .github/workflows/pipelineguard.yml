@@ -31,4 +31,5 @@ jobs:
       - name: Run PipelineGuard
         uses: CamiloUrrea/PipelineGuard/action@v0.1.0
         with:
+          version: "v0.1.0"
           config-path: .pipelineguard.yml
