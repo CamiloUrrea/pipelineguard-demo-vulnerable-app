@@ -1,0 +1,34 @@
+name: PipelineGuard
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+jobs:
+  pipelineguard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version: 'stable'
+
+      - name: Install gitleaks
+        run: go install github.com/gitleaks/gitleaks/v8@latest
+
+      - name: Install trivy
+        run: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+
+      # gh and jq are preinstalled on ubuntu-latest runners.
+
+      - name: Run PipelineGuard
+        uses: CamiloUrrea/PipelineGuard@v0.1.0
+        with:
+          config-path: .pipelineguard.yml

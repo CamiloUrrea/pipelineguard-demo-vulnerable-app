@@ -1,0 +1,14 @@
+{
+  "name": "pipelineguard-demo-vulnerable-app",
+  "version": "1.0.0",
+  "description": "Demo app with intentional vulnerabilities used to end-to-end test the PipelineGuard GitHub Action. DO NOT USE IN PRODUCTION.",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "lodash": "4.17.15"
+  },
+  "license": "MIT"
+}
