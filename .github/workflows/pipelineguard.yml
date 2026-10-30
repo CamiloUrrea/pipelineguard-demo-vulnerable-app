@@ -19,12 +19,13 @@ jobs:
         uses: actions/setup-go@v7
         with:
           go-version: 'stable'
+          cache: false
 
       - name: Install gitleaks
-        run: go install github.com/zricethezav/gitleaks/v8@latest
+        run: go install github.com/zricethezav/gitleaks/v8@v8.30.1
 
       - name: Install trivy
-        run: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+        run: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.72.0
 
       # gh and jq are preinstalled on ubuntu-latest runners.
 
