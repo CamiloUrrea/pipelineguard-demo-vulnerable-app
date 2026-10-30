@@ -13,12 +13,13 @@
   combinar el cuerpo de una petición HTTP no confiable dentro de un objeto de
   configuración — un vector clásico de *prototype pollution*.
 - **`package.json` / `package-lock.json`**: fijan `lodash` en la versión
-  exacta `4.17.15`, vulnerable a **CVE-2020-8203**, **CVE-2019-10744** y
+  exacta `4.17.15`, vulnerable a **CVE-2020-8203**, **CVE-2021-23337** y
   **CVE-2020-28500** (corregidas en `4.17.21`).
-- **`config/settings.py`**: contiene tres "secretos" con el formato de una
-  AWS access key, un GitHub PAT y una Stripe API key. **Son cadenas
-  inventadas al azar, no credenciales reales de nadie.** Su único propósito
-  es que `gitleaks` los detecte durante el escaneo.
+- **`config/settings.py`**: contiene tres cadenas ficticias con formato de
+  credencial: una AWS access key, un GitHub PAT y una Stripe API key. **Son
+  cadenas inventadas al azar, no credenciales reales de nadie.** Durante el
+  escaneo, `gitleaks` detecta dos de ellas: el token de GitHub y el de
+  Stripe.
 - **`.pipelineguard.yml`**: configurado con `enforce: true` y
   `fail_threshold: CRITICAL`, para que el workflow falle de verdad cuando
   PipelineGuard encuentre los hallazgos `CRITICAL` esperados.
