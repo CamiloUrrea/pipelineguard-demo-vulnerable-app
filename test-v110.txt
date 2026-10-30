@@ -1,0 +1,1 @@
+Prueba del tag flotante v1 tras publicar v1.1.0
