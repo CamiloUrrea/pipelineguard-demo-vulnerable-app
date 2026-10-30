@@ -30,3 +30,4 @@ jobs:
         uses: CamiloUrrea/PipelineGuard/action@v1.1.0-rc.1
         with:
           config-path: .pipelineguard.yml
+          sarif-output: /nonexistent-dir/pg.sarif
